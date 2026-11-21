@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOXA ACADEMIC CHALLENGE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-logo">D</div>
+
+            <div class="brand-text">
+                <h2>DOXA</h2>
+                <span>ACADEMIC CHALLENGE</span>
+            </div>
+        </div>
+
+        <div class="club-label">
+            CLUB DOXA
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <!-- HOME SCREEN -->
+        <section id="home-screen" class="screen active">
+
+            <div class="hero">
+
+                <span class="hero-label">
+                    THE ULTIMATE ACADEMIC CHALLENGE
+                </span>
+
+                <h1>
+                    هل أنت مستعد<br>
+                    لتكون <span>الأفضل؟</span>
+                </h1>
+
+                <p>
+                    تحدَّ معلوماتك، أثبت قدراتك، ونافس على المركز الأول.
+                    هل تستطيع الإجابة عن 20 سؤالاً دون ارتكاب أي خطأ؟
+                </p>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <strong>09</strong>
+                    <span>تخصصات</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong>20</strong>
+                    <span>سؤالاً</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong>60s</strong>
+                    <span>لكل سؤال</span>
+                </div>
+
+            </div>
+
+
+            <!-- REGISTRATION -->
+            <div class="panel registration-panel">
+
+                <div class="panel-heading">
+                    <span class="heading-icon">✦</span>
+
+                    <div>
+                        <h2>سجّل دخولك للتحدي</h2>
+                        <p>أدخل معلوماتك واختر تخصصك للبدء.</p>
+                    </div>
+                </div>
+
+
+                <form id="registration-form">
+
+                    <div class="form-group">
+
+                        <label for="player-name">
+                            الاسم الكامل
+                        </label>
+
+                        <input
+                            type="text"
+                            id="player-name"
+                            placeholder="أدخل اسمك ولقبك"
+                            maxlength="60"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="specialty">
+                            اختر تخصصك
+                        </label>
+
+                        <select id="specialty" required>
+
+                            <option value="">
+                                اختر تخصصك الدراسي
+                            </option>
+
+                            <option value="physics">
+                                الفيزياء
+                            </option>
+
+                            <option value="history">
+                                التاريخ
+                            </option>
+
+                            <option value="geography">
+                                الجغرافيا
+                            </option>
+
+                            <option value="biology">
+                                العلوم الطبيعية
+                            </option>
+
+                            <option value="math">
+                                الرياضيات
+                            </option>
+
+                            <option value="philosophy">
+                                الفلسفة
+                            </option>
+
+                            <option value="arabic">
+                                اللغة العربية
+                            </option>
+
+                            <option value="english">
+                                اللغة الإنجليزية
+                            </option>
+
+                            <option value="french">
+                                اللغة الفرنسية
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button type="submit" class="primary-btn">
+                        ابدأ التحدي
+                        <span>←</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- HOME NAVIGATION -->
+            <div class="home-actions">
+
+                <button
+                    type="button"
+                    id="show-leaderboard"
+                    class="secondary-btn"
+                >
+                    🏆 لوحة الشرف
+                </button>
+
+                <button
+                    type="button"
+                    id="show-records"
+                    class="secondary-btn"
+                >
+                    ☷ سجل المشاركين
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- QUIZ SCREEN -->
+        <section id="quiz-screen" class="screen">
+
+            <div class="quiz-header">
+
+                <div class="player-info">
+                    <span>المتسابق الحالي</span>
+                    <h3 id="current-player">---</h3>
+                </div>
+
+
+                <div class="timer-box" id="timer-box">
+
+                    <span>الوقت المتبقي</span>
+
+                    <strong id="timer">
+                        01:00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION PROGRESS -->
+            <div class="progress-area">
+
+                <div class="progress-info">
+
+                    <span>تقدم المسابقة</span>
+
+                    <strong id="question-count">
+                        السؤال 1 من 20
+                    </strong>
+
+                </div>
+
+                <div class="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION -->
+            <div class="panel question-panel">
+
+                <span class="question-label">
+                    ACADEMIC QUESTION
+                </span>
+
+                <h2 id="question-text">
+                    سيظهر السؤال هنا
+                </h2>
+
+                <div
+                    id="answers-container"
+                    class="answers"
+                ></div>
+
+            </div>
+
+
+            <div class="warning-text">
+                ⚠️ احذر! إجابة خاطئة واحدة تعني الإقصاء.
+            </div>
+
+        </section>
+
+
+
+        <!-- RESULT SCREEN -->
+        <section id="result-screen" class="screen">
+
+            <div class="panel result-panel">
+
+                <div id="result-icon" class="result-icon">
+                    🏆
+                </div>
+
+                <span class="hero-label">
+                    CHALLENGE RESULTS
+                </span>
+
+                <h1 id="result-title">
+                    النتيجة النهائية
+                </h1>
+
+                <p id="result-message"></p>
+
+                <div
+                    class="score-display"
+                    id="final-score"
+                >
+                    0/20
+                </div>
+
+                <p id="result-details"></p>
+
+                <button
+                    type="button"
+                    id="back-home"
+                    class="primary-btn"
+                >
+                    العودة إلى الرئيسية
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- LEADERBOARD SCREEN -->
+        <section id="leaderboard-screen" class="screen">
+
+            <div class="section-heading">
+
+                <span class="hero-label">
+                    HALL OF FAME
+                </span>
+
+                <h1>لوحة الشرف</h1>
+
+                <p>
+                    هنا يُكتب اسم من استطاع إكمال التحدي.
+                </p>
+
+            </div>
+
+            <div id="leaderboard-list"></div>
+
+            <button
+                type="button"
+                class="secondary-btn back-btn"
+            >
+                العودة إلى الرئيسية
+            </button>
+
+        </section>
+
+
+
+        <!-- PARTICIPANTS RECORDS -->
+        <section id="records-screen" class="screen">
+
+            <div class="section-heading">
+
+                <span class="hero-label">
+                    PARTICIPANTS RECORDS
+                </span>
+
+                <h1>سجل المشاركين</h1>
+
+                <p>
+                    جميع المشاركين ومحاولاتهم ونتائجهم.
+                </p>
+
+            </div>
+
+            <div id="records-list"></div>
+
+            <button
+                type="button"
+                class="secondary-btn back-btn"
+            >
+                العودة إلى الرئيسية
+            </button>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <h3>DOXA ACADEMIC CHALLENGE</h3>
+
+        <p>
+            An initiative by CLUB DOXA
+        </p>
+
+        <span>
+            THINK • ANSWER • WIN
+        </span>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
